@@ -14,25 +14,13 @@ class Student(Person):
         self.scores = scores
     def calculate(self):
         avg = sum(self.scores)/len(self.scores)
-        if avg > 89:
-            return 'O'
-        if avg > 79:
-            return 'E'
-        if avg > 69:
-            return 'A'
-        if avg > 54:
-            return 'P'
-        if avg > 39:
-            return 'D'
-        else:
-            return 'T'
-        
+        return 'O' if avg> 89 else 'E' if avg > 79 else 'A' if avg > 69 else 'P' if avg > 54 else 'D' if avg > 39 else 'T'
 
 line = input().split()
 firstName = line[0]
 lastName = line[1]
 idNum = line[2]
-numScores = int(input()) 
+numScores = int(input()) # not needed for Python
 scores = list( map(int, input().split()) )
 s = Student(firstName, lastName, idNum, scores)
 s.printPerson()
